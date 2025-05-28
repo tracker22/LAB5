@@ -5,14 +5,10 @@
 
 using namespace std;
 
-void addFriends(const string$ name1, const string$ name2){
-    friends[name1].insert(name2);
-    friends[name2].insert(name1);
-}
 int main() {
     int N;
     cin >> N;
-
+    
     map<string, set<string>> friends;
 
     for (int i = 0; i < N; ++i) {
@@ -22,7 +18,8 @@ int main() {
         if (command == "FRIENDS") {
             string name1, name2;
             cin >> name1 >> name2;
-            addFriends(name1, name2);
+            friends[name1].insert(name2);
+            friends[name2].insert(name1);
         } else if (command == "COUNT") {
             string name;
             cin >> name;
